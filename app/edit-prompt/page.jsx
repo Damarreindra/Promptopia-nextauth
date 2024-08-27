@@ -2,7 +2,7 @@
 import Form from '@components/Form'
 import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 
 const page = () => {
@@ -56,6 +56,8 @@ const page = () => {
     }
   }
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+
     <Form
     type='Edit'
     post={post}
@@ -63,6 +65,7 @@ const page = () => {
     submitting={submitting}
     handleSubmit={editPrompt}
     />
+    </Suspense>
   )
 }
 

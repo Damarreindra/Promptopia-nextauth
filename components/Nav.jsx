@@ -31,7 +31,7 @@ const {data:session} = useSession()
       alt='Promptopia Logo'
       className='object-contain'
       />
-      <p className='logo_text'>PromptCraft</p>
+      <p className='logo_text'>PromptCrafted</p>
       </Link>
 
       <div className="sm:flex hidden">

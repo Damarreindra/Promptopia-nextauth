@@ -8,7 +8,7 @@ import {signIn, signOut, useSession, getProviders} from 'next-auth/react'
 
 
 const Nav = () => {
-const{data:session} = useSession() 
+const {data:session} = useSession() 
   const [providers, setProviders] = useState(null)
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
@@ -20,7 +20,6 @@ const{data:session} = useSession()
     setUpProviders()
   },[])
 
- 
   return (
    
     <nav className='flex-between w-full pt-3'>
@@ -43,7 +42,7 @@ const{data:session} = useSession()
               Create Post
             </Link>
             <button type='button' onClick={signOut} className='outline_btn'>Sign Out</button>
-            <Link href={'/profile'}>
+            <Link     href={`/${session?.user.id}`}>
               <Image
               src={session.user.image}
               width={30}
@@ -83,7 +82,7 @@ const{data:session} = useSession()
                 toggleDropdown && (
                   <div className='dropdown'>
                     <Link 
-                    href={'/profile'}
+                    href={`/${session?.user.name}`}
                     onClick={()=>setToggleDropdown(false)}
                     >
                       My Profile
